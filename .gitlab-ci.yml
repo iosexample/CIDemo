@@ -4,8 +4,10 @@ stages:
 build_project:
   stage: build
   script:
+    - pwd
+    - xcodebuild -list
     - xcodebuild clean -project CIDemo.xcodeproj -scheme CIDemo | xcpretty
-    - xcodebuild test -project CIDemo.xcodeproj -scheme CIDemo -configuration Debug -destination 'platform=iOS Simulator,name=iPhone SE' | xcpretty -s
+    - xcodebuild test -project CIDemo.xcodeproj -scheme CIDemo -configuration Debug -destination 'platform=iOS Simulator,name=iPhone SE,OS=11.1' | xcpretty -s
   tags:
     - demo
     - ios
